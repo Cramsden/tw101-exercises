@@ -20,6 +20,8 @@ public class Main {
 
         List<String> names = root.names();
 
+        System.out.println(names);
+
         for (String name : names) {
             System.out.println(name);
         }
