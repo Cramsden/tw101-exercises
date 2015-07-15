@@ -4,7 +4,7 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
 public class DiamondExercises {
     public static void main(String[] args) {
         drawAnIsoscelesTriangle(3);
-        drawADiamond(3);
+        drawADiamond(8);
         drawADiamondWithYourName(3);
     }
 
@@ -14,8 +14,7 @@ public class DiamondExercises {
 //             ***
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
-        //int levels = n;
-        //int max = (levels-1)/2*2 + n;
+        System.out.println("Isosceles Triangle:");
         drawAnIsoscelesHelper(n, false);
     }
 
@@ -43,7 +42,8 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
-        drawAnIsoscelesTriangle(n);
+        System.out.println("Diamond: ");
+        drawAnIsoscelesHelper(n,false);
         drawUpsideDownTriangle(n);
     }
 
@@ -67,7 +67,8 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
-        drawAnIsoscelesHelper(n,true);
+        System.out.println("Diamond with Name:");
+        drawAnIsoscelesHelper(n, true);
         drawUpsideDownTriangle(n);
 
     }
