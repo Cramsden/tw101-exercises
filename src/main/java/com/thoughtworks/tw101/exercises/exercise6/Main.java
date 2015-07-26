@@ -15,18 +15,18 @@ public class Main {
         Orc orc2 = new Orc();
         Troll troll1 = new Troll();
         Troll troll2 = new Troll();
-        ArrayList<Monster> monsters = new ArrayList<Monster>();
+        ArrayList<Monster> monsters = new ArrayList<>();
         monsters.add(orc1);
         monsters.add(troll1);
         monsters.add(orc2);
         monsters.add(troll2);
 
-        for(Monster monsta : monsters){
-            monsta.takeDamage(10);
+        for(Monster monster : monsters){
+            monster.takeDamage(10);
         }
 
-        for(Monster monsta : monsters){
-            monsta.reportStatus();
+        for(Monster monster : monsters){
+            monster.reportStatus();
         }
 
 

@@ -17,6 +17,7 @@ public class Orc implements Monster {
         hitPoints = hitPoints - amount;
     }
 
+    @Override
     public void reportStatus(){
         System.out.println(name + " has " + hitPoints + " points");
     }

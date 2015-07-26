@@ -58,6 +58,9 @@ public class TriangleExercises {
 
     }
 
+    // Helper functions:
+
+    //Repeat copies and prints string s, n times
     private static String repeat(String s, int n){
         String repeated = "";
         for (int i=0; i<n; i++){

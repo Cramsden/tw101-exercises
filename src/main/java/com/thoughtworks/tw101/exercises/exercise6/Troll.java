@@ -18,6 +18,8 @@ public class Troll implements Monster {
         hitPoints = hitPoints-damage;
 
     }
+
+    @Override
     public void reportStatus(){
         System.out.println(name + " has " + hitPoints + " points");
     }
