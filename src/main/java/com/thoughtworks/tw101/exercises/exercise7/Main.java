@@ -14,6 +14,7 @@ public class Main {
         RandomNumberPicker comp = new RandomNumberPicker();
         int numberPicked = comp.getChoice();
         GuessChecker checker = new GuessChecker();
+        System.out.println("Please make a guess between 1 and 100:");
         checker.guessCheckPlay(numberPicked);
 
     }

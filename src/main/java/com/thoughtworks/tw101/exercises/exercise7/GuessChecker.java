@@ -5,39 +5,53 @@ import java.util.Scanner;
  */
 public class GuessChecker {
     private int userGuessNum;
+    private boolean guessCorrect=false;
 
 
     public void guessCheckPlay(int numberChoice){
-        while (true) {
+        if (!guessCorrect) {
 
-            System.out.println("Please make a guess between 1 and 100:");
             Scanner user_input = new Scanner(System.in);
 
             try {
                 String userGuess = user_input.next();
 
                 // create int from guess
-                userGuessNum = Integer.parseInt(userGuess);
+                createIntFromGuess(userGuess);
 
-                // check guess
-                if (userGuessNum < 1 || userGuessNum > 100)
-                {
-                    System.out.println("Your guess was not between 1 and 100, please guess again");
-                }
-                else if (userGuessNum == numberChoice) {
-                    System.out.println("You have guessed my number, you win!!");
-                    break;
-                } else {
-                    if (userGuessNum > numberChoice) {
-                        System.out.println("Your guess is too big, try lower");
-                    }
-                    if (userGuessNum < numberChoice) {
-                        System.out.println("Your guess is too small, try higher");
-                    }
-                }
-            }catch(NumberFormatException e){
+
+            }
+            catch(NumberFormatException e){
                 System.out.println("That was not a valid input, please try again");
             }
+
+            checkGuess(numberChoice);
+
+
         }
+    }
+    public void checkGuess(int numberChoice){
+        if (userGuessNum < 1 || userGuessNum > 100) {
+            System.out.println("Your guess was not between 1 and 100, please guess again");
+        }
+        else if (userGuessNum == numberChoice) {
+            System.out.println("You have guessed my number, you win!!");
+            guessCorrect = true;
+        }
+        else {
+            if (userGuessNum > numberChoice) {
+                System.out.println("Your guess is too big, try lower");
+                guessCheckPlay(numberChoice);
+            }
+            if (userGuessNum < numberChoice) {
+                System.out.println("Your guess is too small, try higher");
+                guessCheckPlay(numberChoice);
+            }
+        }
+
+    }
+
+    public void createIntFromGuess(String guess){
+        userGuessNum = Integer.parseInt(guess);
     }
 }

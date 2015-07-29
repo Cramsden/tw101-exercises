@@ -18,53 +18,52 @@ public class Node {
     public void add(String nameOfNewNode) {
         int compare = name.compareTo(nameOfNewNode);
 
-        if (name == nameOfNewNode)
-            {
-                return;
+        if (name == nameOfNewNode) {
+            return;
+        }
+        else if (compare > 0) {
+            if (left == null){
+                left = new Node(nameOfNewNode);
+            }else{
+                left.add(nameOfNewNode);
             }
-        else if (compare > 0)
-            {
-                if (left == null){
-                    left = new Node(nameOfNewNode);
-                }else{
-                    left.add(nameOfNewNode);
-                }
+        }
+        else if (compare < 0) {
+            if (right == null) {
+                right = new Node(nameOfNewNode);
+            }else {
+                right.add(nameOfNewNode);
             }
-        else if (compare < 0)
-            {
-                if (right == null)
-                {
-                    right = new Node(nameOfNewNode);
-                }else{
-                    right.add(nameOfNewNode);
-                }
 
-            }
+        }
     }
 
     public List<String> names() {
         List<String> names = new ArrayList<>();
 
+        if(left == null) {
 
-        if (left == null && right == null){
+            names.add(name);
+
+            if(right != null) {
+                names.addAll(right.names());
+            }
+        }
+        else if (right == null) {
+
+            if (left != null) {
+                names.addAll(left.names());
+            }
+
             names.add(name);
         }
-        else if (left == null)
-        {
+        else {
+            names.addAll(left.names());
             names.add(name);
             names.addAll(right.names());
         }
-        else if (right == null)
-        {;
-            names.addAll(left.names());
-            names.add(name);
-        }else{
-            names.addAll(left.names());
-            names.add(name);
-            names.addAll(right.names());
-        }
 
-        // collections.sort(names) to sort the list?
+
 
         return names;
     }

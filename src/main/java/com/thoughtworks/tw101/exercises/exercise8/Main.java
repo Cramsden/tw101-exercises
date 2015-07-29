@@ -35,7 +35,7 @@ public class Main {
                     // check if the guess is correct
                     checker.setGuess(userInputNum);
                     checker.checkGuess(numberPicked);
-                }else {
+                }else{
                     System.out.println("Your guess was not between 1 and 100, please guess again");
                 }
 
